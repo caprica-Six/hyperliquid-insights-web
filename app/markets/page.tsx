@@ -1,10 +1,10 @@
 import { PageLayout } from '@/components/PageLayout';
 import { PageTitle } from '@/components/PageTitle';
 
-export default function HomePage() {
+export default function MarketsPage() {
   return (
     <PageLayout withContainer={true}>
-      <PageTitle>Home Page</PageTitle>
+      <PageTitle>Markets</PageTitle>
     </PageLayout>
   );
 }
