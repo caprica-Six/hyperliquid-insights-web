@@ -16,11 +16,7 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 
-interface AppSidebarProps {
-  className?: string;
-}
-
-export function AppSidebar({ className }: AppSidebarProps) {
+export function AppSidebar() {
   const pathname = usePathname();
 
   const menuItems = [
