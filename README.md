@@ -5,11 +5,13 @@ A modern web application for visualizing and analyzing Hyperliquid market data. 
 ## Tech Stack
 
 ### Core Framework
+
 - **Next.js 16.1.1** - React framework with App Router
 - **React 19.2.3** - UI library
 - **TypeScript 5** - Type-safe JavaScript
 
 ### UI & Styling
+
 - **shadcn/ui** - Modern component library built on Radix UI
 - **Tailwind CSS 4.0** - Utility-first CSS framework
 - **Radix UI** - Unstyled, accessible component primitives
@@ -18,13 +20,16 @@ A modern web application for visualizing and analyzing Hyperliquid market data. 
 - **next-themes** - Theme switching (light/dark mode)
 
 ### State Management & Data Fetching
+
 - **TanStack Query (React Query) 5.90** - Server state management
 - **class-variance-authority** - Component variant management
 
 ### Charting & Visualization
+
 - **Recharts 3.6** - Composable charting library
 
 ### Development Tools
+
 - **Vitest** - Testing framework
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
@@ -33,6 +38,7 @@ A modern web application for visualizing and analyzing Hyperliquid market data. 
 ### Migration Notes
 
 This project was upgraded from **ChakraUI** to the modern stack of **Next.js 16** with **shadcn/ui** components, providing:
+
 - Better performance with React Server Components
 - More flexible styling with Tailwind CSS
 - Improved accessibility with Radix UI primitives
