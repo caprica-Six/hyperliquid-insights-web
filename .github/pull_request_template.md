@@ -1,6 +1,7 @@
 # Your PR template content
 
 ## PR Checklist
+
 - [ ] Linted code (`npm run lint` or equivalent)
 - [ ] Formatted code (`npm run format` or equivalent)
 - [ ] Build succeeds (`npm run build` or equivalent)
