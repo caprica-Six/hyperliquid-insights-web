@@ -21,7 +21,7 @@ export function AppSidebar() {
 
   const menuItems = [
     {
-      title: 'Dashboard',
+      title: 'Home',
       href: '/',
       icon: LayoutDashboard,
       isActive: pathname === '/',
@@ -37,10 +37,6 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
-        {/* <SidebarHeader>
-        <SidebarTrigger />
-      </SidebarHeader> */}
-
         <SidebarGroup>
           <SidebarGroupLabel>MARKETS</SidebarGroupLabel>
 
