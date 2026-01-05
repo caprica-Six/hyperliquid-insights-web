@@ -76,7 +76,7 @@ export default async function CoinPage({ params }: CoinPageProps) {
 
   if (!coinDetail || !marketData) {
     return (
-      <PageLayout withContainer={true}>
+      <PageLayout>
         <PageTitle>Coin not found</PageTitle>
       </PageLayout>
     );
@@ -96,7 +96,7 @@ export default async function CoinPage({ params }: CoinPageProps) {
   }));
 
   return (
-    <PageLayout withContainer={true}>
+    <PageLayout>
       <div className="mb-6">
         <PageTitle>
           {coinDetail.name} ({coinDetail.symbol.toUpperCase()})
