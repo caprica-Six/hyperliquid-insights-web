@@ -157,3 +157,59 @@ export async function getCoinMarketData(
     return mockMarketData.find((coin) => coin.id === coinId) || null;
   }
 }
+
+/**
+ * Fetches market data for the markets table (up to 75 coins for 3 pages)
+ * Falls back to mock data if API request fails
+ *
+ * @param options - Fetch options
+ * @param options.revalidate - Revalidation time in seconds (default: 60)
+ * @returns Promise<CryptoMarketData[]> - Array of market data (max 75 items)
+ */
+export async function getMarketsTableData(options?: {
+  revalidate?: number;
+}): Promise<CryptoMarketData[]> {
+  const revalidate = options?.revalidate ?? 60;
+  const perPage = 75; // 3 pages × 25 items per page
+
+  try {
+    const url = `${BASE_URL}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${perPage}&page=1&sparkline=true&price_change_percentage=24h`;
+
+    const res = await fetch(url, {
+      next: { revalidate },
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error(`CoinGecko API error: ${res.status} ${res.statusText}`);
+    }
+
+    const data: CryptoMarketData[] = await res.json();
+
+    // Validate that we got data
+    if (!Array.isArray(data) || data.length === 0) {
+      throw new Error('Invalid data format from API');
+    }
+
+    // Limit to 75 items (3 pages)
+    return data.slice(0, perPage);
+  } catch (error) {
+    console.error(
+      'Failed to fetch markets table data from CoinGecko API:',
+      error
+    );
+    console.log('Falling back to mock data...');
+
+    // Return mock data as fallback (repeat mock data to fill 3 pages)
+    const { mockMarketsTableData } =
+      await import('@/lib/mock-data/markets-table');
+    // Repeat mock data to fill 3 pages (75 items)
+    const repeatedMockData = Array.from(
+      { length: 3 },
+      () => mockMarketsTableData
+    ).flat();
+    return repeatedMockData.slice(0, perPage);
+  }
+}

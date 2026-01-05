@@ -170,6 +170,12 @@ export interface CoinTableRow {
   tags?: string[];
 }
 
+export interface MarketsTableColumn extends CryptoMarketData {
+  volume_to_market_cap_ratio?: number;
+  social_dominance_percentage?: number;
+}
+
 // API Response types
 export type MarketOverviewResponse = CryptoMarketData[];
 export type CoinDetailResponse = CoinDetailData;
+export type MarketsTableResponse = MarketsTableColumn[];
