@@ -38,7 +38,11 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>MARKETS</SidebarGroupLabel>
+          <SidebarGroupLabel>
+            <span className="text-sm text-sidebar-foreground/70 italic font-semibold text-zinc-500">
+              Markets
+            </span>
+          </SidebarGroupLabel>
 
           <SidebarGroupContent>
             <SidebarMenu>
