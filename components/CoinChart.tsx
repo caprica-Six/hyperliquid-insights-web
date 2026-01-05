@@ -25,7 +25,7 @@ function ChartTooltip(props: {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="rounded-md bg-green-900/90 border border-green-700/50 px-3 py-2 shadow-lg">
+      <div className="rounded-md bg-black/80 border border-white/10 px-3 py-2 shadow-lg">
         <div className="text-white text-xs font-medium">
           {formatPrice(data.value)}
         </div>

@@ -107,11 +107,14 @@ hyperliquid-insights-web/
 │   └── ThemeToggle.tsx          # Dark/light mode toggle
 │
 ├── lib/                         # Utility libraries
+│   ├── api/                     # API integration layer
+│   │   └── coingecko.ts         # CoinGecko API functions
 │   ├── utils.ts                 # Utility functions (cn, etc.)
 │   ├── format.ts                # Formatting utilities
-│   └── mock-data/               # Mock data for development
+│   └── mock-data/               # Mock data for fallback/development
 │       ├── index.ts
-│       └── markets.ts
+│       ├── markets.ts
+│       └── coin-details.ts
 │
 ├── hooks/                       # Custom React hooks
 │   └── use-mobile.ts            # Mobile detection hook
@@ -173,15 +176,69 @@ npm start
 - `npm run test:watch` - Run tests in watch mode
 - `npm run test:coverage` - Generate test coverage report
 
+## API Integration
+
+### CoinGecko API
+
+The application fetches real-time cryptocurrency data from the [CoinGecko API](https://www.coingecko.com/en/api).
+
+#### Configuration
+
+Create a `.env.local` file in the root directory:
+
+```bash
+# CoinGecko API Base URL
+NEXT_PUBLIC_COINGECKO_API_URL=https://api.coingecko.com/api/v3
+
+# Optional: API Key for higher rate limits
+# COINGECKO_API_KEY=your_api_key_here
+```
+
+See `.env.local.example` for reference.
+
+#### API Functions
+
+Located in `/lib/api/coingecko.ts`:
+
+- **`getMarketData()`** - Fetches market overview data for cryptocurrencies
+  - Automatically falls back to mock data on API failure
+  - Uses Next.js fetch with revalidation (60s default)
+  - Type-safe with TypeScript
+
+#### Error Handling
+
+All API functions include:
+
+- ✅ Automatic fallback to mock data on failure
+- ✅ Error logging for debugging
+- ✅ Type-safe responses
+- ✅ Next.js caching with revalidation
+
+#### Caching Strategy
+
+- **Server Components**: Uses Next.js `fetch` with `revalidate` option
+- **Default**: 60 seconds revalidation
+- **Configurable**: Per-function revalidation time
+
+Example:
+
+```typescript
+const data = await getMarketData({
+  perPage: 4,
+  revalidate: 60, // Cache for 60 seconds
+});
+```
+
 ## Features
 
-- 📊 Market data visualization
+- 📊 Market data visualization with real-time API integration
 - 🎨 Modern UI with shadcn/ui components
 - 🌙 Dark/light theme support
 - 📱 Responsive design
 - ♿ Accessible components (Radix UI)
 - ⚡ Fast performance with Next.js 16
 - 🔧 Type-safe with TypeScript
+- 🔄 Automatic API fallback to mock data
 
 ## Attribution
 
