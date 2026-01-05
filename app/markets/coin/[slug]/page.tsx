@@ -1,7 +1,6 @@
 import { PageLayout } from '@/components/PageLayout';
 import { PageTitle } from '@/components/PageTitle';
-import { mockCoinDetails } from '@/lib/mock-data/coin-details';
-import { mockMarketData } from '@/lib/mock-data/markets';
+import { getCoinDetail, getCoinMarketData } from '@/lib/api/coingecko';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatPrice, formatPercentageChange } from '@/lib/format';
 import { cn } from '@/lib/utils';
@@ -68,8 +67,12 @@ function renderBlockchainLinks(urls: string[]) {
 
 export default async function CoinPage({ params }: CoinPageProps) {
   const { slug } = await params;
-  const coinDetail = mockCoinDetails[slug];
-  const marketData = mockMarketData.find((coin) => coin.id === slug);
+
+  // Fetch coin detail and market data from API with fallback to mock data
+  const [coinDetail, marketData] = await Promise.all([
+    getCoinDetail(slug, { revalidate: 60 }),
+    getCoinMarketData(slug, { revalidate: 60 }),
+  ]);
 
   if (!coinDetail || !marketData) {
     return (
@@ -82,12 +85,12 @@ export default async function CoinPage({ params }: CoinPageProps) {
   const currentPrice = coinDetail.market_data.current_price.usd;
   const priceChange24h = coinDetail.market_data.price_change_24h;
   const priceChangePercentage24h =
-    coinDetail.market_data.price_change_percentage_24h;
+    coinDetail.market_data.price_change_percentage_24h || 0;
   const isPositive = priceChangePercentage24h >= 0;
 
   // Generate chart data from sparkline (24h data)
   const sparklinePrices = marketData.sparkline_in_7d.price.slice(-24); // Last 24 hours
-  const chartData = sparklinePrices.map((price, index) => ({
+  const chartData = sparklinePrices.map((price: number, index: number) => ({
     value: price,
     time: `${String(Math.floor(index / 2) + 4).padStart(2, '0')}:${String((index % 2) * 30).padStart(2, '0')}`,
   }));

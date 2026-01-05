@@ -45,7 +45,7 @@ function ChartTooltip(props: {
   const change = ((value - previousValue) / previousValue) * 100;
 
   return (
-    <div className="rounded-md bg-green-900/90 border border-green-700/50 px-3 py-2 shadow-lg">
+    <div className="rounded-md bg-black/80 border border-white/10 px-3 py-2 shadow-lg">
       <div className="text-white text-xs font-medium">{data.index}</div>
       <div className="text-white/70 text-xs">
         Change: {change >= 0 ? '+' : ''}
@@ -56,7 +56,7 @@ function ChartTooltip(props: {
 }
 
 export function OverviewCard({ data }: OverviewCardProps) {
-  const changePercentage = data.price_change_percentage_24h;
+  const changePercentage = data.price_change_percentage_24h || 0;
   const isPositive = changePercentage >= 0;
   const initials = getCoinInitials(data.name);
 
