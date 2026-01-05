@@ -27,15 +27,33 @@ describe('HomePage', () => {
     const coinCardLinks = coinLinks.filter((link) =>
       link.getAttribute('href')?.startsWith('/markets/coin/')
     );
-    expect(coinCardLinks).toHaveLength(4);
+
+    expect(coinCardLinks.length).toBeGreaterThanOrEqual(4);
+
+    const overviewCardIds = mockMarketData.slice(0, 4).map((coin) => coin.id);
+    overviewCardIds.forEach((id) => {
+      expect(
+        coinCardLinks.some(
+          (link) => link.getAttribute('href') === `/markets/coin/${id}`
+        )
+      ).toBe(true);
+    });
   });
 
   it('should render coin names in cards', async () => {
     const HomePageComponent = await HomePage();
     render(HomePageComponent);
     mockMarketData.slice(0, 4).forEach((coin) => {
-      const coinName = screen.getByText(coin.name);
-      expect(coinName).toBeInTheDocument();
+      const coinNames = screen.getAllByText(coin.name);
+      expect(coinNames.length).toBeGreaterThan(0);
     });
+  });
+
+  it('should render all market trend card titles', async () => {
+    const HomePageComponent = await HomePage();
+    render(HomePageComponent);
+    expect(screen.getByText('Most Traded Live Data')).toBeInTheDocument();
+    expect(screen.getByText('Top Gainers Live Data')).toBeInTheDocument();
+    expect(screen.getByText('Top Losers Live Data')).toBeInTheDocument();
   });
 });

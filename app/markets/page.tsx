@@ -7,7 +7,7 @@ export default async function MarketsPage() {
   const marketData = await getMarketsTableData({ revalidate: 60 });
 
   return (
-    <PageLayout withContainer={true}>
+    <PageLayout>
       <PageTitle>Markets</PageTitle>
       <MarketsTable data={marketData} />
     </PageLayout>

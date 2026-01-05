@@ -2,6 +2,14 @@
 
 A modern web application for visualizing and analyzing Hyperliquid market data. This project provides an intuitive dashboard interface for exploring crypto market insights.
 
+#### [Click here to see the Live Demo](https://hyperliquid-insights-web-17w3.vercel.app/)
+
+![HyperLiquid Insights - Markets Overview](public/assets/hyperliquid-insights-markets-overview.png)
+
+![HyperLiquid Insights - Coin Overview](public/assets/hyperliquid-insights-coin-overview.png)
+
+![HyperLiquid Insights - Markets Table](public/assets/hyperliquid-inisights-markets-table.png)
+
 ## Tech Stack
 
 ### Core Framework
