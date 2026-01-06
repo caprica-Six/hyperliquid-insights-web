@@ -1,8 +1,8 @@
 # Hyperliquid Insights
 
-A modern web application for visualizing and analyzing Hyperliquid market data. This project provides an intuitive dashboard interface for exploring crypto market insights.
+A modern cryptocurrency market dashboard for exploring real-time market data and insights. Built with Next.js 16, TypeScript, shadcn/ui, and powered by the CoinGecko API.
 
-#### [Click here to see the Live Demo](https://hyperliquid-insights-web-17w3.vercel.app/)
+#### [Click here to see the Live Demo](https://hyperliquid-insights-web-szxm.vercel.app/)
 
 ![HyperLiquid Insights - Markets Overview](public/assets/hyperliquid-insights-markets-overview.png)
 
@@ -10,154 +10,14 @@ A modern web application for visualizing and analyzing Hyperliquid market data. 
 
 ![HyperLiquid Insights - Markets Table](public/assets/hyperliquid-inisights-markets-table.png)
 
-## Tech Stack
-
-### Core Framework
-
-- **Next.js 16.1.1** - React framework with App Router
-- **React 19.2.3** - UI library
-- **TypeScript 5** - Type-safe JavaScript
-
-### UI & Styling
-
-- **shadcn/ui** - Modern component library built on Radix UI
-- **Tailwind CSS 4.0** - Utility-first CSS framework
-- **Radix UI** - Unstyled, accessible component primitives
-  - Dialog, Dropdown Menu, Separator, Tabs, Tooltip
-- **Lucide React** - Icon library
-- **next-themes** - Theme switching (light/dark mode)
-
-### State Management & Data Fetching
-
-- **TanStack Query (React Query) 5.90** - Server state management
-- **class-variance-authority** - Component variant management
-
-### Charting & Visualization
-
-- **Recharts 3.6** - Composable charting library
-
-### Development Tools
-
-- **Vitest** - Testing framework
-- **ESLint** - Code linting
-- **Prettier** - Code formatting
-- **Testing Library** - Component testing utilities
-
-### Migration Notes
-
-This project was upgraded from **ChakraUI** to the modern stack of **Next.js 16** with **shadcn/ui** components, providing:
-
-- Better performance with React Server Components
-- More flexible styling with Tailwind CSS
-- Improved accessibility with Radix UI primitives
-- Type-safe component APIs
-- Better developer experience with modern tooling
-
-## UI Layout
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Header (Sticky)                       │
-│  [☰] Hyperliquid Insights  [🌙] [Home] [Market Data]        │
-├──────────┬──────────────────────────────────────────────────┤
-│          │                                                   │
-│          │                                                   │
-│ Sidebar  │           Main Content Area                       │
-│          │           (SidebarInset)                          │
-│ MARKETS  │                                                   │
-│  • 📊    │           Page Content                            │
-│ Dashboard│                                                   │
-│  • 📈    │           (Dynamic content based on route)        │
-│ Markets  │                                                   │
-│          │                                                   │
-│ Footer   │                                                   │
-│ (footer) │                                                   │
-└──────────┴──────────────────────────────────────────────────┘
-```
-
-### Layout Components
-
-- **Header**: Sticky navigation bar with sidebar trigger, logo, and navigation links
-- **Sidebar**: Collapsible navigation panel with market sections
-- **SidebarInset**: Main content area that adjusts based on sidebar state
-- **Footer**: Application footer
-
-## Project Structure
-
-```
-hyperliquid-insights-web/
-├── app/                          # Next.js App Router
-│   ├── layout.tsx               # Root layout with providers
-│   ├── page.tsx                 # Home page
-│   ├── page.test.tsx            # Home page tests
-│   ├── markets/
-│   │   └── page.tsx             # Markets page
-│   ├── globals.css              # Global styles & Tailwind
-│   └── favicon.ico              # App icon
-│
-├── components/                   # React components
-│   ├── ui/                      # shadcn/ui components
-│   │   ├── button.tsx
-│   │   ├── input.tsx
-│   │   ├── separator.tsx
-│   │   ├── sheet.tsx
-│   │   ├── sidebar.tsx
-│   │   ├── skeleton.tsx
-│   │   └── tooltip.tsx
-│   ├── charts/                  # Chart components
-│   │   └── index.ts
-│   ├── AppSidebar.tsx           # Main sidebar component
-│   ├── Header.tsx               # Navigation header
-│   ├── Footer.tsx               # Footer component
-│   ├── PageLayout.tsx           # Page layout wrapper
-│   ├── PageTitle.tsx            # Page title component
-│   ├── ThemeProvider.tsx        # Theme context provider
-│   └── ThemeToggle.tsx          # Dark/light mode toggle
-│
-├── lib/                         # Utility libraries
-│   ├── api/                     # API integration layer
-│   │   └── coingecko.ts         # CoinGecko API functions
-│   ├── utils.ts                 # Utility functions (cn, etc.)
-│   ├── format.ts                # Formatting utilities
-│   └── mock-data/               # Mock data for fallback/development
-│       ├── index.ts
-│       ├── markets.ts           # Market data for homepage cards
-│       ├── coin-details.ts      # Detailed coin information
-│       └── markets-table.ts     # Market data for table (25 items)
-│
-├── hooks/                       # Custom React hooks
-│   └── use-mobile.ts            # Mobile detection hook
-│
-├── public/                      # Static assets
-│   └── *.svg                    # SVG icons
-│
-├── coverage/                    # Test coverage reports
-├── constants.ts                 # Application constants
-├── components.json              # shadcn/ui configuration
-├── tailwind.config.ts           # Tailwind CSS configuration
-├── tsconfig.json                # TypeScript configuration
-├── vitest.config.ts             # Vitest configuration
-├── eslint.config.mjs            # ESLint configuration
-└── package.json                 # Dependencies & scripts
-```
-
-### Key Directories
-
-- **`app/`**: Next.js 16 App Router pages and layouts
-- **`components/ui/`**: shadcn/ui component library
-- **`components/`**: Application-specific components
-- **`lib/`**: Shared utilities and helpers
-- **`hooks/`**: Custom React hooks
-- **`public/`**: Static assets served at the root
-
-## Development
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js 20+
 - npm or yarn
 
-### Getting Started
+### Installation
 
 ```bash
 # Install dependencies
@@ -168,167 +28,41 @@ npm run dev
 
 # Build for production
 npm run build
-
-# Start production server
-npm start
 ```
 
-### Available Scripts
+## 🛠️ Tech Stack
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint errors
-- `npm run format` - Format code with Prettier
-- `npm test` - Run tests
-- `npm run test:watch` - Run tests in watch mode
-- `npm run test:coverage` - Generate test coverage report
+| Category      | Technologies                      |
+| ------------- | --------------------------------- |
+| **Framework** | Next.js, React                    |
+| **Language**  | TypeScript                        |
+| **Styling**   | Tailwind CSS, shadcn/ui, Radix UI |
+| **State**     | TanStack Query                    |
+| **Charts**    | Recharts                          |
+| **Testing**   | Vitest, Testing Library           |
+| **Tools**     | ESLint, Prettier                  |
 
-## API Integration
+## 📚 Documentation
 
-### CoinGecko API
+- [🏗️ Architecture](docs/ARCHITECTURE.md) - System design, data flow, and migration guide
+- [🔌 API Reference](docs/API_REFERENCE.md) - CoinGecko integration and API functions
+- [🤖 AI Integration](docs/AI_INTEGRATION.md) - AI-readiness and extension points
+- [🧪 Testing](docs/TESTING.md) - Test commands and coverage
+- [🤝 Contributing](docs/CONTRIBUTING.md) - Development setup and workflow
 
-The application fetches real-time cryptocurrency data from the [CoinGecko API](https://www.coingecko.com/en/api). All API functions are located in `/lib/api/coingecko.ts` and include automatic fallback to mock data on failure.
+## 🔄 Migration Story
 
-#### Configuration
+This project was upgraded from **ChakraUI** to the modern stack of **Next.js 16** with **shadcn/ui** components, providing:
 
-Create a `.env.local` file in the root directory:
+- Better performance with React Server Components
+- More flexible styling with Tailwind CSS
+- Improved accessibility with Radix UI primitives
+- Type-safe component APIs
+- Better developer experience with modern tooling
 
-```bash
-# CoinGecko API Base URL
-NEXT_PUBLIC_COINGECKO_API_URL=https://api.coingecko.com/api/v3
+If you need client-side features like CoinGecko search, see [AI_INTEGRATION.md](docs/AI_INTEGRATION.md) for adding API routes.
 
-# Optional: API Key for higher rate limits
-# COINGECKO_API_KEY=your_api_key_here
-```
-
-See `.env.local.example` for reference.
-
-#### API Functions
-
-##### `getMarketData(options?)`
-
-Fetches market overview data for the homepage cards.
-
-**Parameters:**
-
-- `options.perPage` (optional): Number of coins to fetch (default: `4`)
-- `options.revalidate` (optional): Revalidation time in seconds (default: `60`)
-
-**Returns:** `Promise<CryptoMarketData[]>`
-
-**Usage:**
-
-```typescript
-const marketData = await getMarketData({
-  perPage: 4,
-  revalidate: 60,
-});
-```
-
-**Used in:** `/app/page.tsx` (Homepage)
-
----
-
-##### `getCoinDetail(coinId, options?)`
-
-Fetches detailed coin information for coin detail pages.
-
-**Parameters:**
-
-- `coinId` (required): The coin ID (e.g., `'bitcoin'`, `'ethereum'`)
-- `options.revalidate` (optional): Revalidation time in seconds (default: `60`)
-
-**Returns:** `Promise<CoinDetailData | null>` (returns `null` if coin not found)
-
-**Usage:**
-
-```typescript
-const coinDetail = await getCoinDetail('bitcoin', {
-  revalidate: 60,
-});
-```
-
-**Used in:** `/app/markets/coin/[slug]/page.tsx` (Coin detail page)
-
----
-
-##### `getCoinMarketData(coinId, options?)`
-
-Fetches market data for a specific coin (includes sparkline for charts).
-
-**Parameters:**
-
-- `coinId` (required): The coin ID (e.g., `'bitcoin'`, `'ethereum'`)
-- `options.revalidate` (optional): Revalidation time in seconds (default: `60`)
-
-**Returns:** `Promise<CryptoMarketData | null>` (returns `null` if coin not found)
-
-**Usage:**
-
-```typescript
-const marketData = await getCoinMarketData('bitcoin', {
-  revalidate: 60,
-});
-```
-
-**Used in:** `/app/markets/coin/[slug]/page.tsx` (Coin detail page - for sparkline chart)
-
----
-
-##### `getMarketsTableData(options?)`
-
-Fetches market data for the markets table (up to 75 coins for 3 pages of pagination).
-
-**Parameters:**
-
-- `options.revalidate` (optional): Revalidation time in seconds (default: `60`)
-
-**Returns:** `Promise<CryptoMarketData[]>` (max 75 items)
-
-**Usage:**
-
-```typescript
-const tableData = await getMarketsTableData({
-  revalidate: 60,
-});
-```
-
-**Used in:** `/app/markets/page.tsx` (Markets table page)
-
-**Note:** Fetches 75 items (3 pages × 25 items per page) to support pagination.
-
----
-
-#### Error Handling
-
-All API functions include:
-
-- ✅ **Automatic fallback** to mock data on API failure
-- ✅ **Error logging** for debugging
-- ✅ **Type-safe responses** with TypeScript
-- ✅ **404 handling** for `getCoinDetail` and `getCoinMarketData` (returns `null`)
-- ✅ **Data validation** to ensure response format is correct
-
-#### Caching Strategy
-
-- **Server Components**: Uses Next.js `fetch` with `revalidate` option
-- **Default**: 60 seconds revalidation
-- **Configurable**: Per-function revalidation time
-- **Next.js ISR**: Automatic static regeneration for optimal performance
-
-#### Mock Data Fallback
-
-When API requests fail, the application automatically falls back to mock data located in `/lib/mock-data/`:
-
-- `markets.ts` - Market data for homepage cards
-- `coin-details.ts` - Detailed coin information
-- `markets-table.ts` - Market data for table (25 items, duplicated to 75 for testing)
-
-This ensures the application remains functional even when the API is unavailable.
-
-## Features
+## 📊 Features
 
 - 📊 Market data visualization with real-time API integration
 - 🎨 Modern UI with shadcn/ui components
@@ -339,9 +73,9 @@ This ensures the application remains functional even when the API is unavailable
 - 🔧 Type-safe with TypeScript
 - 🔄 Automatic API fallback to mock data
 
-## Attribution
+## 🙏 Attribution
 
-This project is an independent reimplementation inspired by
+This project is an independent project inspired by
 [thunderhead-labs/hyperliquid-stats-web](https://github.com/thunderhead-labs/hyperliquid-stats-web),
 which is licensed under the MIT License.
 
