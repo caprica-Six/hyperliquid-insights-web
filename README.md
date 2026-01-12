@@ -10,6 +10,10 @@ A modern cryptocurrency market dashboard for exploring real-time market data and
 
 ![HyperLiquid Insights - Markets Table](public/assets/hyperliquid-inisights-markets-table.png)
 
+## Project structure
+
+See [🏗️ Architecture](docs/ARCHITECTURE.md)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
