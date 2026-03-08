@@ -119,7 +119,7 @@ export default async function CoinPage({ params }: CoinPageProps) {
       {/* Chart */}
       <Card className="mb-6">
         <CardContent className="p-6">
-          <CoinChart data={chartData} isPositive={isPositive} coinId={slug} />
+          <CoinChart data={chartData} coinId={slug} />
         </CardContent>
       </Card>
 

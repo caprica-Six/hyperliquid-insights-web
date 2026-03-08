@@ -6,7 +6,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'bitcoin',
     symbol: 'btc',
     name: 'Bitcoin',
-    image: 'https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png',
+    image: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png',
     current_price: 92819.0,
     market_cap: 1850000000000,
     market_cap_rank: 1,
@@ -38,8 +38,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'ethereum',
     symbol: 'eth',
     name: 'Ethereum',
-    image:
-      'https://coin-images.coingecko.com/coins/images/279/large/ethereum.png',
+    image: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png',
     current_price: 3170.0,
     market_cap: 381120000000,
     market_cap_rank: 2,
@@ -75,8 +74,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'tether',
     symbol: 'usdt',
     name: 'Tether',
-    image:
-      'https://coin-images.coingecko.com/coins/images/325/large/Tether.png',
+    image: 'https://assets.coingecko.com/coins/images/325/large/Tether.png',
     current_price: 1.0,
     market_cap: 187010000000,
     market_cap_rank: 3,
@@ -108,8 +106,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'solana',
     symbol: 'sol',
     name: 'Solana',
-    image:
-      'https://coin-images.coingecko.com/coins/images/4128/large/solana.png',
+    image: 'https://assets.coingecko.com/coins/images/4128/large/solana.png',
     current_price: 135.13,
     market_cap: 76000000000,
     market_cap_rank: 6,
@@ -141,7 +138,8 @@ const baseMockData: CryptoMarketData[] = [
     id: 'ripple',
     symbol: 'xrp',
     name: 'XRP',
-    image: 'https://coin-images.coingecko.com/coins/images/52/large/xrp.png',
+    image:
+      'https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png',
     current_price: 2.13,
     market_cap: 120000000000,
     market_cap_rank: 4,
@@ -173,8 +171,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'dogecoin',
     symbol: 'doge',
     name: 'Dogecoin',
-    image:
-      'https://coin-images.coingecko.com/coins/images/5/large/dogecoin.png',
+    image: 'https://assets.coingecko.com/coins/images/5/large/dogecoin.png',
     current_price: 0.15,
     market_cap: 22000000000,
     market_cap_rank: 8,
@@ -206,8 +203,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'cardano',
     symbol: 'ada',
     name: 'Cardano',
-    image:
-      'https://coin-images.coingecko.com/coins/images/975/large/cardano.png',
+    image: 'https://assets.coingecko.com/coins/images/975/large/cardano.png',
     current_price: 0.4,
     market_cap: 14000000000,
     market_cap_rank: 10,
@@ -240,7 +236,7 @@ const baseMockData: CryptoMarketData[] = [
     symbol: 'avax',
     name: 'Avalanche',
     image:
-      'https://coin-images.coingecko.com/coins/images/12559/large/avalanche-avax-logo.png',
+      'https://assets.coingecko.com/coins/images/12559/standard/Avalanche_Circle_RedWhite_Trans.png?1696512369',
     current_price: 14.17,
     market_cap: 5500000000,
     market_cap_rank: 12,
@@ -273,7 +269,7 @@ const baseMockData: CryptoMarketData[] = [
     symbol: 'link',
     name: 'Chainlink',
     image:
-      'https://coin-images.coingecko.com/coins/images/877/large/chainlink-new-logo.png',
+      'https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png',
     current_price: 13.51,
     market_cap: 7800000000,
     market_cap_rank: 11,
@@ -306,7 +302,7 @@ const baseMockData: CryptoMarketData[] = [
     symbol: 'bnb',
     name: 'BNB',
     image:
-      'https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png',
+      'https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png',
     current_price: 425.0,
     market_cap: 64000000000,
     market_cap_rank: 5,
@@ -339,8 +335,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'compound',
     symbol: 'comp',
     name: 'Compound',
-    image:
-      'https://coin-images.coingecko.com/coins/images/10775/large/COMP.png',
+    image: 'https://assets.coingecko.com/coins/images/10775/large/COMP.png',
     current_price: 4469.59,
     market_cap: 3500000000,
     market_cap_rank: 15,
@@ -372,8 +367,7 @@ const baseMockData: CryptoMarketData[] = [
     id: 'starknet',
     symbol: 'strk',
     name: 'Starknet',
-    image:
-      'https://coin-images.coingecko.com/coins/images/26433/large/starknet.png',
+    image: 'https://assets.coingecko.com/coins/images/26433/large/starknet.png',
     current_price: 0.09,
     market_cap: 1200000000,
     market_cap_rank: 25,
@@ -406,7 +400,7 @@ const baseMockData: CryptoMarketData[] = [
     symbol: 'celo',
     name: 'Celo',
     image:
-      'https://coin-images.coingecko.com/coins/images/11090/large/celo.png',
+      'https://assets.coingecko.com/coins/images/11090/standard/InjXBNx9_400x400.jpg',
     current_price: 0.13,
     market_cap: 700000000,
     market_cap_rank: 30,

@@ -13,7 +13,6 @@ import { formatPrice } from '@/lib/format';
 
 interface CoinChartProps {
   data: Array<{ value: number; time: string }>;
-  isPositive: boolean;
   coinId: string;
 }
 
@@ -36,7 +35,10 @@ function ChartTooltip(props: {
   return null;
 }
 
-export function CoinChart({ data, isPositive, coinId }: CoinChartProps) {
+export function CoinChart({ data, coinId }: CoinChartProps) {
+  const isPositive =
+    data.length > 1 && data[data.length - 1].value > data[0].value;
+
   return (
     <div className="h-96 w-full">
       <ResponsiveContainer width="100%" height={384}>

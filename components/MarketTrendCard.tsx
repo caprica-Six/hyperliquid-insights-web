@@ -15,17 +15,18 @@ import { CryptoMarketData } from '@/types/crypto';
 import { formatPrice, formatPercentageChange } from '@/lib/format';
 import { cn } from '@/lib/utils';
 
-interface MarketTrendCardProps {
+interface BaseProps {
   title: string;
   data: CryptoMarketData[];
-  showVolume?: boolean;
 }
 
-export function MarketTrendCard({
+type MarketTrendCardBaseProps = BaseProps & { showVolume: boolean };
+
+function MarketTrendCardBase({
   title,
   data,
-  showVolume = false,
-}: MarketTrendCardProps) {
+  showVolume,
+}: MarketTrendCardBaseProps) {
   if (!data || data.length === 0) {
     return (
       <Card>
@@ -147,3 +148,18 @@ export function MarketTrendCard({
     </Card>
   );
 }
+
+// public variants
+export function MarketTrendCardBasic(props: BaseProps) {
+  return <MarketTrendCardBase {...props} showVolume={false} />;
+}
+
+export function MarketTrendCardWithVolume(props: BaseProps) {
+  return <MarketTrendCardBase {...props} showVolume={true} />;
+}
+
+// convenience export if consumers prefer an object namespace
+export const MarketTrendCard = {
+  Basic: MarketTrendCardBasic,
+  WithVolume: MarketTrendCardWithVolume,
+};

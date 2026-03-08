@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-const coinGeckoDarkLogo = "/assets/CG-Lockup.png";
-const coinGeckoLightLogo = "/assets/CG-Lockup-2.png";
+const coinGeckoDarkLogo = '/assets/CG-Lockup.png';
+const coinGeckoLightLogo = '/assets/CG-Lockup-2.png';
 
 export default function Footer() {
   return (
