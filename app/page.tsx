@@ -1,13 +1,13 @@
 import { PageLayout } from '@/components/PageLayout';
 import { PageTitle } from '@/components/PageTitle';
 import { OverviewCard } from '@/components/OverviewCard';
-import { MarketTrendCard } from '@/components/MarketTrendCard';
 import { getMarketData } from '@/lib/api/coingecko';
 import {
   getMostTraded,
   getTopGainers,
   getTopLosers,
 } from '@/lib/mock-data/trend-helpers';
+import { MarketTrendSection } from '@/components/MarketTrendSection';
 
 export default async function HomePage() {
   const marketData = await getMarketData({ perPage: 4, revalidate: 60 });
@@ -25,19 +25,11 @@ export default async function HomePage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
-        <MarketTrendCard title="Most Traded Live Data" data={mostTraded} />
-        <MarketTrendCard
-          title="Top Gainers Live Data"
-          data={topGainers}
-          showVolume={true}
-        />
-        <MarketTrendCard
-          title="Top Losers Live Data"
-          data={topLosers}
-          showVolume={true}
-        />
-      </div>
+      <MarketTrendSection
+        mostTraded={mostTraded}
+        topGainers={topGainers}
+        topLosers={topLosers}
+      />
     </PageLayout>
   );
 }

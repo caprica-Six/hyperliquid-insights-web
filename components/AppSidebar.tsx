@@ -39,7 +39,7 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>
-            <span className="text-sm text-sidebar-foreground/70 italic font-semibold text-zinc-500">
+            <span className="text-sm italic font-semibold text-zinc-500">
               Markets
             </span>
           </SidebarGroupLabel>
