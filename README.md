@@ -77,6 +77,11 @@ If you need client-side features like CoinGecko search, see [AI_INTEGRATION.md](
 - 🔧 Type-safe with TypeScript
 - 🔄 Automatic API fallback to mock data
 
+## Agent Skills
+
+To update AI agent skills: `npx agent-skills add vercel-labs/agent-skills --skill vercel-composition-patterns`
+Full docs: https://vercel.com/docs/agent-resources/skills
+
 ## 🙏 Attribution
 
 This project is an independent project inspired by

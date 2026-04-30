@@ -224,6 +224,9 @@ export function MarketsTable({ data }: MarketsTableProps) {
     });
   }, [data]);
 
+  // TanStack Table currently triggers react-hooks/incompatible-library with React Compiler linting.
+  // Safe to use here; we intentionally opt out for this call.
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data: validatedData,
     columns,
